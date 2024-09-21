@@ -12,6 +12,9 @@ function createCaptureFunc(video){
     
     return {
         getDataUrl: () => {
+            if(ctx === null){
+                return '';
+            }
             ctx.drawImage(_video, 0, 0, canvas.width, canvas.height);
             return canvas.toDataURL();
         },
@@ -25,3 +28,5 @@ function createCaptureFunc(video){
         }
     }
 }
+
+export default createCaptureFunc;
